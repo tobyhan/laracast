@@ -8,7 +8,7 @@
 
 <h1>Submit Your Name</h1>
 
-<form method="POST" action="/users">
+<form method="POST" action="/laracast/users">
     <input name="name"></input>
     <button type="submit">Submit</button>
 </form>

@@ -10,6 +10,7 @@ function view($name, $data = [])
 {
     extract($data);
 
+    //var_dump("app/views/{$name}.view.php");//debug
     return require "app/views/{$name}.view.php";
 }
 
@@ -20,5 +21,5 @@ function view($name, $data = [])
  */
 function redirect($path)
 {
-    header("Location: /{$path}");
+    header("Location: /laracast/{$path}");
 }

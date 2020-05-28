@@ -24,7 +24,7 @@ class Router
         $router = new static;
 
         require $file;
-
+        
         return $router;
     }
 
@@ -58,13 +58,14 @@ class Router
      */
     public function direct($uri, $requestType)
     {
+        //var_dump($uri, $requestType, $this->routes);//debug
         if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         }
 
-        throw new Exception('No route defined for this URI.');
+        throw new \Exception('No route defined for this URI.');
     }
 
     /**
@@ -79,7 +80,7 @@ class Router
         $controller = new $controller;
 
         if (! method_exists($controller, $action)) {
-            throw new Exception(
+            throw new \Exception(
                 "{$controller} does not respond to the {$action} action."
             );
         }
